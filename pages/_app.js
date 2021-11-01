@@ -1,9 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/globals.css";
+
 import React from "react";
 import { Navbar, Container, Row, Col } from "react-bootstrap";
 
-function Copero({ Component, pageProps }) {
+export default function Copero({ Component, pageProps }) {
   return (
     <div>
       <Navbar bg="dark" variant="dark">
@@ -22,5 +23,3 @@ function Copero({ Component, pageProps }) {
     </div>
   );
 }
-
-export default Copero;

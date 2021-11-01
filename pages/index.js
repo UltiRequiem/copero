@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { useRouter } from "next/router";
 
 export default function CreateSnippet() {
-  const [snippet, setSnippet] = useState("");
+  const [snippet, setSnippet] = React.useState("");
 
   const router = useRouter();
 

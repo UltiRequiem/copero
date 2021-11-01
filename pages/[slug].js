@@ -1,9 +1,10 @@
 import React from "react";
 import { Form, Button, Alert } from "react-bootstrap";
-import Snippet from "../models/snippet";
-import copy from "clipboard-copy";
+
 import Image from "next/image";
 import { useRouter } from "next/router";
+
+import copy from "clipboard-copy";
 
 export default function CreateSnippet({ snippetText, slug }) {
   const router = useRouter();
@@ -73,8 +74,9 @@ export default function CreateSnippet({ snippetText, slug }) {
   );
 }
 
-export async function getServerSideProps({ params: { slug } }) {
-  const snippetObject = await Snippet.findOne({ slug });
+export async function getServerSideProps({params: {slug}}) {
+  const response = await fetch(`api/${slug}`);
+  const snippetObject = await response.json();
 
   if (!snippetObject) {
     return { props: {} };

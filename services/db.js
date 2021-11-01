@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
 
 import randomString from "randomstring";
-import Snippet from "../models/snippet.js";
+import SnippetModel from "../models/snippet.js";
+
+import { DB_USER, PASSWORD, CLUSTER_NAME, SUBDOMAIN } from "../config.js";
 
 class DataBase {
   constructor() {
@@ -15,14 +17,16 @@ class DataBase {
   }
 
   async newSnippet(snippet) {
-    return await Snippet.create({
+    const newSnippet = await new SnippetModel({
       snippet,
       slug: randomString.generate({ length: 6, charset: "alphabetic" }),
-    });
+    }).save();
+
+    return newSnippet;
   }
 
   async findBySlug(slug) {
-    return await Snippet.findOne({ slug });
+    return await SnippetModel.findOne({ slug });
   }
 }
 
