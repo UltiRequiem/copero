@@ -1,17 +1,15 @@
-import "../../utils/db.js";
-import randomString from "randomstring";
-import Snippet from "../../models/snippet.js";
+import DBService from "../../services/db";
 
-export default async function handlePost({ body: { snippet }, method }, res) {
+export default async function handlePost(
+  { body: { snippet }, method },
+  response
+) {
   if (method !== "POST") {
-    response.json({ error: "Method not allowed" });
+    response.json({ error: `Method ${method} not allowed` });
   }
 
-  const snippetPost = await Snippet.create({
-    snippet,
-    slug: randomString.generate({ length: 6, charset: "alphabetic" }),
-  });
+  const snippetPost = await DBService.newSnippet(snippet);
 
-  res.statusCode = 200;
-  res.json(snippetPost);
+  response.statusCode = 200;
+  response.json(snippetPost);
 }

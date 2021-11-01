@@ -1,18 +1,16 @@
-import "../../utils/db.js";
-import randomString from "randomstring";
-import Snippet from "../../models/snippet.js";
+import DBService from "../../services/db";
 
-export default async function handleRaw(req, res) {
-  if (req.method !== "GET") {
-    response.json({ error: "Method not allowed" });
+export default async function handleRaw({ query: { raw }, method }, response) {
+  if (method !== "GET") {
+    response.json({ error: `Method ${method} not allowed` });
   }
 
-  const snippetObject = await Snippet.findOne({ slug: req.query.raw });
+  const snippetObject = await DBService.findBySlug(raw);
 
   if (!snippetObject) {
-    res.json({ error: `Snippet ${req.query.raw} not found.` });
+    response.json({ error: `Snippet ${raw} not found.` });
   }
 
-  res.statusCode = 200;
-  res.send(snippetObject.snippet);
+  response.statusCode = 200;
+  response.send(snippetObject.snippet);
 }
