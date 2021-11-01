@@ -1,7 +1,7 @@
-import DBService from "../../services/db";
+import DBService from '../../services/mongodb.js';
 
 export default async function handleRaw({ query: { raw }, method }, response) {
-  if (method !== "GET") {
+  if (method !== 'GET') {
     response.json({ error: `Method ${method} not allowed.` });
   }
 

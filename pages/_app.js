@@ -1,8 +1,10 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/globals.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/globals.css';
 
-import React from "react";
-import { Navbar, Container, Row, Col } from "react-bootstrap";
+import React from 'react';
+import {
+  Navbar, Container, Row, Col,
+} from 'react-bootstrap';
 
 export default function Copero({ Component, pageProps }) {
   return (

@@ -1,10 +1,10 @@
-import DBService from "../../services/db";
+import DBService from '../../services/mongodb.js';
 
 export default async function handlePost(
   { body: { snippet }, method },
-  response
+  response,
 ) {
-  if (method !== "POST") {
+  if (method !== 'POST') {
     response.json({ error: `Method ${method} not allowed` });
   }
 

@@ -1,8 +1,10 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const SnippetModel = mongoose.model("snippet", {
+const { model, Schema } = mongoose;
+
+const SnippetSchema = new Schema({
   snippet: String,
   slug: String,
 });
 
-export default SnippetModel;
+export default model('snippet', SnippetSchema);

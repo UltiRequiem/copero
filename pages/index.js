@@ -1,17 +1,17 @@
-import React from "react";
-import { Form, Button } from "react-bootstrap";
-import { useRouter } from "next/router";
+import React from 'react';
+import { Form, Button } from 'react-bootstrap';
+import { useRouter } from 'next/router';
 
 export default function CreateSnippet() {
-  const [snippet, setSnippet] = React.useState("");
+  const [snippet, setSnippet] = React.useState('');
 
   const router = useRouter();
 
   const saveSnippet = async () => {
-    const response = await fetch("/api/post", {
-      method: "POST",
+    const response = await fetch('/api/post', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ snippet }),
     });
@@ -31,7 +31,7 @@ export default function CreateSnippet() {
       <Form>
         <Form.Group className="mb-2 pt-4">
           <Form.Control
-            style={{ width: "80%", height: "300px", margin: "0 auto" }}
+            style={{ width: '80%', height: '300px', margin: '0 auto' }}
             as="textarea"
             rows={3}
             onChange={(e) => setSnippet(e.target.value)}

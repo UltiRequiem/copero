@@ -1,10 +1,10 @@
-import React from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+import React from 'react';
+import { Form, Button, Alert } from 'react-bootstrap';
 
-import Image from "next/image";
-import { useRouter } from "next/router";
+import Image from 'next/image';
+import { useRouter } from 'next/router';
 
-import copy from "clipboard-copy";
+import copy from 'clipboard-copy';
 
 export default function CreateSnippet({ snippetText, slug }) {
   const router = useRouter();
@@ -26,7 +26,7 @@ export default function CreateSnippet({ snippetText, slug }) {
         </div>
 
         <div className="mt-1">
-          <Button onClick={() => router.push("/")} variant="outline-info">
+          <Button onClick={() => router.push('/')} variant="outline-info">
             Return Home
           </Button>
         </div>
@@ -56,9 +56,9 @@ export default function CreateSnippet({ snippetText, slug }) {
         <Form.Group controlId="exampleForm.ControlTextarea1">
           <Form.Control
             style={{
-              margin: "0 auto",
-              width: "80%",
-              height: "300px",
+              margin: '0 auto',
+              width: '80%',
+              height: '300px',
             }}
             disabled
             value={snippetText}
@@ -74,8 +74,9 @@ export default function CreateSnippet({ snippetText, slug }) {
   );
 }
 
-export async function getServerSideProps({params: {slug}}) {
-  const response = await fetch(`api/${slug}`);
+export async function getServerSideProps({ req, params: { slug } }) {
+  const response = await fetch(`http://${req.headers.host}/api/${slug}`);
+  console.log(response);
   const snippetObject = await response.json();
 
   if (!snippetObject) {
