@@ -74,9 +74,9 @@ export default function CreateSnippet({ snippetText, slug }) {
   );
 }
 
+// eslint-disable-next-line unicorn/prevent-abbreviations
 export async function getServerSideProps({ req, params: { slug } }) {
   const response = await fetch(`http://${req.headers.host}/api/${slug}`);
-  console.log(response);
   const snippetObject = await response.json();
 
   if (!snippetObject) {
