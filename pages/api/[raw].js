@@ -12,5 +12,5 @@ export default async function handleRaw({ query: { raw }, method }, response) {
   }
 
   response.statusCode = 200;
-  response.send(snippetObject.snippet);
+  response.send(snippetObject?.snippet);
 }
