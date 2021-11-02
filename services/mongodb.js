@@ -2,33 +2,30 @@
 import mongoose from 'mongoose';
 
 import randomString from 'randomstring';
-import SnippetModel from '../models/snippet.js';
+import { Snippet } from '../models.js';
 
 import {
-  DB_USER, PASSWORD, CLUSTER_NAME, SUBDOMAIN,
+  DB_USER, PASSWORD, CLUSTER_NAME, SUBDOMAIN, DB,
 } from '../config.js';
 
 class DataBase {
   constructor() {
-    mongoose
-      .connect(
-        `mongodb+srv://${DB_USER}:${PASSWORD}@${CLUSTER_NAME}.${SUBDOMAIN}.mongodb.net/principal?retryWrites=true&w=majority`,
-      )
-      .then(() => {
-        // eslint-disable-next-line no-console
-        console.log('Connected to MongoDB Atlas.');
-      });
+    (async () => {
+      await mongoose.connect(
+        `mongodb+srv://${DB_USER}:${PASSWORD}@${CLUSTER_NAME}.${SUBDOMAIN}.mongodb.net/${DB}?retryWrites=true&w=majority`,
+      );
+    })();
   }
 
   async newSnippet(snippet) {
-    return new SnippetModel({
+    return new Snippet({
       snippet,
       slug: randomString.generate({ length: 6, charset: 'alphabetic' }),
     }).save();
   }
 
   async findBySlug(slug) {
-    return SnippetModel.findOne({ slug });
+    return Snippet.findOne({ slug });
   }
 }
 

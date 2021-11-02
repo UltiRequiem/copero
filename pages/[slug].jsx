@@ -9,7 +9,7 @@ import copy from 'clipboard-copy';
 export default function CreateSnippet({ snippetText, slug }) {
   const router = useRouter();
 
-  if (!snippetText) {
+  if (!snippetText || !slug) {
     return (
       <>
         <div className="mt-4">
@@ -77,15 +77,15 @@ export default function CreateSnippet({ snippetText, slug }) {
 // eslint-disable-next-line unicorn/prevent-abbreviations
 export async function getServerSideProps({ req, params: { slug } }) {
   const response = await fetch(`http://${req.headers.host}/api/${slug}`);
-  const snippetObject = await response.json();
+  const snippetObject = await response.text();
 
-  if (!snippetObject) {
+  if (!snippetObject || !snippetObject) {
     return { props: {} };
   }
 
   return {
     props: {
-      snippetText: snippetObject.snippet,
+      snippetText: snippetObject,
       slug,
     },
   };
