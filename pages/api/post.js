@@ -10,6 +10,5 @@ export default async function handlePost(
 
   const snippetPost = await DBService.newSnippet(snippet);
 
-  response.statusCode = 200;
-  response.json(snippetPost);
+  response.status(200).json(snippetPost);
 }

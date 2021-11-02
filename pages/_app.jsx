@@ -1,5 +1,9 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-props-no-spreading */
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css';
+import Head from 'next/head';
 
 import React from 'react';
 import {
@@ -9,6 +13,10 @@ import {
 export default function Copero({ Component, pageProps }) {
   return (
     <div>
+      <Head>
+        <title>Copero</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="/"> &nbsp; Copero</Navbar.Brand>
       </Navbar>

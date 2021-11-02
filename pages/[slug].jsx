@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Form, Button, Alert } from 'react-bootstrap';
 
 import Image from 'next/image';
@@ -33,6 +34,11 @@ export default function CreateSnippet({ snippetText, slug }) {
       </>
     );
   }
+
+  CreateSnippet.propTypes = {
+    snippetText: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+  };
 
   return (
     <div className="text-center mt-4">
@@ -75,8 +81,8 @@ export default function CreateSnippet({ snippetText, slug }) {
 }
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getServerSideProps({ req, params: { slug } }) {
-  const response = await fetch(`http://${req.headers.host}/api/${slug}`);
+export async function getServerSideProps({ req: request, params: { slug } }) {
+  const response = await fetch(`http://${request.headers.host}/api/${slug}`);
   const snippetObject = await response.text();
 
   if (!snippetObject || !snippetObject) {

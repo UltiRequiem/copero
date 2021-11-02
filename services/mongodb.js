@@ -27,6 +27,10 @@ class DataBase {
   async findBySlug(slug) {
     return Snippet.findOne({ slug });
   }
+
+  async publicSnippets() {
+    return Snippet.find({ private: undefined });
+  }
 }
 
 export default new DataBase();
