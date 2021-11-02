@@ -31,7 +31,7 @@ export default function CreateSnippet() {
       <Form>
         <Form.Group className="mb-2 pt-4">
           <Form.Control
-            style={{ width: '80%', height: '300px', margin: '0 auto' }}
+            style={{ width: '100%', height: '15em', margin: '0 auto' }}
             as="textarea"
             rows={3}
             onChange={(event) => setSnippet(event.target.value)}

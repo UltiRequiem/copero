@@ -16,9 +16,10 @@ export default function Copero({ Component, pageProps }) {
       <Head>
         <title>Copero</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link rel="icon" type="image/svg" href="/favicon.svg" />
       </Head>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="/"> &nbsp; Copero</Navbar.Brand>
+        <Navbar.Brand href="/">Copero</Navbar.Brand>
       </Navbar>
       <Container>
         <Row>
@@ -27,8 +28,20 @@ export default function Copero({ Component, pageProps }) {
           </Col>
         </Row>
       </Container>
-      <Navbar bg="dark" variant="dark" className="mt-4">
-        <Navbar.Brand href="/"> &nbsp; © 2021 UltiRequiem </Navbar.Brand>
+      <Navbar bg="dark" variant="dark" className="navbar fixed-bottom">
+        <Navbar.Brand href="/">
+          <ul
+            style={{
+              justifyContent: 'center',
+              display: 'flex',
+              textAlign: 'center',
+            }}
+          >
+            <li style={{ display: 'list-item' }}>
+              © 2021 Eliaz Bobadilla (a.k.a UltiRequiem)
+            </li>
+          </ul>
+        </Navbar.Brand>
       </Navbar>
     </div>
   );

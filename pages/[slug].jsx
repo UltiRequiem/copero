@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form, Button, Alert } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -79,9 +79,6 @@ export default function CreateSnippet({ snippetText, slug, notExist = false }) {
           />
         </Form.Group>
       </Form>
-      <Alert className="mt-4" variant="info">
-        Done successfully
-      </Alert>
     </div>
   );
 }
