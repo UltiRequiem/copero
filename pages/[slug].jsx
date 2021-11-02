@@ -6,11 +6,12 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import copy from 'clipboard-copy';
+import { isJSON } from '../utils.js';
 
-export default function CreateSnippet({ snippetText, slug }) {
+export default function CreateSnippet({ snippetText, slug, notExist = false }) {
   const router = useRouter();
 
-  if (!snippetText || !slug) {
+  if (notExist) {
     return (
       <>
         <div className="mt-4">
@@ -38,6 +39,11 @@ export default function CreateSnippet({ snippetText, slug }) {
   CreateSnippet.propTypes = {
     snippetText: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
+    notExist: PropTypes.bool,
+  };
+
+  CreateSnippet.defaultProps = {
+    notExist: false,
   };
 
   return (
@@ -83,15 +89,15 @@ export default function CreateSnippet({ snippetText, slug }) {
 // eslint-disable-next-line unicorn/prevent-abbreviations
 export async function getServerSideProps({ req: request, params: { slug } }) {
   const response = await fetch(`http://${request.headers.host}/api/${slug}`);
-  const snippetObject = await response.text();
+  const parsedResponse = await response.text();
 
-  if (!snippetObject || !snippetObject) {
-    return { props: {} };
+  if (isJSON(parsedResponse)) {
+    return { props: { notExist: true } };
   }
 
   return {
     props: {
-      snippetText: snippetObject,
+      snippetText: parsedResponse,
       slug,
     },
   };
