@@ -6,4 +6,4 @@ const SnippetSchema = new mongoose.Schema({
 });
 
 // eslint-disable-next-line import/prefer-default-export
-export const Snippet = mongoose.models.Snippet || mongoose.model('snippet', SnippetSchema);
+export const Snippet = mongoose.models.snippet || mongoose.model('snippet', SnippetSchema);
