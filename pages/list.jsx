@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function ListSnippets({ slugs, host }) {
   return (
@@ -18,6 +19,11 @@ export default function ListSnippets({ slugs, host }) {
   );
 }
 
+ListSnippets.propTypes = {
+  slugs: PropTypes.arrayOf(PropTypes.string).isRequired,
+  host: PropTypes.string.isRequired,
+};
+
 // eslint-disable-next-line unicorn/prevent-abbreviations
 export async function getServerSideProps({
   req: {
@@ -29,7 +35,7 @@ export async function getServerSideProps({
 
   return {
     props: {
-      snippetsData: slugs,
+      slugs,
       host,
     },
   };
