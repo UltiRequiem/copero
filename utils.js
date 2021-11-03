@@ -7,3 +7,8 @@ export function isJSON(possibleJSON) {
   }
   return true;
 }
+
+export function only(method, wantedMethod, response) {
+  if (method === wantedMethod) return;
+  response.json({ error: `Got '${method}', but only '${wantedMethod}' method is expected.` });
+}

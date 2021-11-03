@@ -1,9 +1,8 @@
 import DBService from '../../services/mongodb.js';
+import { only } from '../../utils.js';
 
 export default async function handleRaw({ query: { raw }, method }, response) {
-  if (method !== 'GET') {
-    response.json({ error: `Method ${method} not allowed.` });
-  }
+  only(method, 'GET', response);
 
   const snippetObject = await DBService.findBySlug(raw);
 
