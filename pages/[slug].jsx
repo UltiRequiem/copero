@@ -36,16 +36,6 @@ export default function CreateSnippet({ snippetText, slug, notExist = false }) {
     );
   }
 
-  CreateSnippet.propTypes = {
-    snippetText: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
-    notExist: PropTypes.bool,
-  };
-
-  CreateSnippet.defaultProps = {
-    notExist: false,
-  };
-
   return (
     <div className="text-center mt-4">
       <h1>Snippet</h1>
@@ -82,6 +72,16 @@ export default function CreateSnippet({ snippetText, slug, notExist = false }) {
     </div>
   );
 }
+
+CreateSnippet.propTypes = {
+  snippetText: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  notExist: PropTypes.bool,
+};
+
+CreateSnippet.defaultProps = {
+  notExist: false,
+};
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
 export async function getServerSideProps({ req: request, params: { slug } }) {
