@@ -1,3 +1,6 @@
+/**
+ * @param {string} possibleJSON
+ */
 export function isJSON(possibleJSON) {
   try {
     JSON.parse(possibleJSON);
@@ -7,9 +10,14 @@ export function isJSON(possibleJSON) {
   return true;
 }
 
-export function only(method, wantedMethod, response) {
-  if (method === wantedMethod) return;
+/**
+ * @param {string} method
+ * @param {string} expectedMethod
+ * @param {Object} response
+ */
+export function only(method, expectedMethod, response) {
+  if (method === expectedMethod) return;
   response.json({
-    error: `Got '${method}', but only '${wantedMethod}' method is expected.`,
+    error: `Got '${method}', but only '${expectedMethod}' method is expected.`,
   });
 }
