@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import copy from 'clipboard-copy';
-import { isJSON } from '../utils.js';
+import { isJSON } from '../utils';
 
 export default function CreateSnippet({ snippetText, slug, notExist = false }) {
   const router = useRouter();

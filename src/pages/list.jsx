@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ItemListContainer, { ItemList } from '../styles/list.js';
+import { ItemListContainer, ItemList } from '../styles';
 
 export default function ListSnippets({ slugs, host }) {
   return (

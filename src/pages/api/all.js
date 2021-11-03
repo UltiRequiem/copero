@@ -1,5 +1,5 @@
 import { DBService } from '../../services';
-import { only } from '../../utils.js';
+import { only } from '../../utils';
 
 export default async function handleRaw({ method, query }, response) {
   only(method, 'GET', response);

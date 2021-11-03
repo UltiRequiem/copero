@@ -1,5 +1,5 @@
 import { DBService } from '../../services';
-import { only } from '../../utils.js';
+import { only } from '../../utils';
 
 export default async function handlePost({ body, method }, response) {
   only(method, 'POST', response);
