@@ -14,16 +14,6 @@ const GlobalStyle = createGlobalStyle`
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
   
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-  
-  li{
-    list-style: none;
-    display:inline-block;
-  }
-  
   * {
     box-sizing: border-box;
   }`;

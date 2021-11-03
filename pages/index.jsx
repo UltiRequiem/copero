@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 
 export default function CreateSnippet() {
   const [snippet, setSnippet] = React.useState('');
-
   const router = useRouter();
 
   const saveSnippet = async () => {
@@ -31,14 +30,14 @@ export default function CreateSnippet() {
       <Form>
         <Form.Group className="mb-2 pt-4">
           <Form.Control
-            style={{ width: '100%', height: '15em', margin: '0 auto' }}
+            style={{ width: '100%', height: '18em', margin: '0 auto' }}
             as="textarea"
             rows={3}
             onChange={(event) => setSnippet(event.target.value)}
           />
         </Form.Group>
 
-        <Button onClick={saveSnippet} variant="outline-info">
+        <Button onClick={saveSnippet} variant="outline-info" className="mt-4">
           Save your snippet
         </Button>
       </Form>
