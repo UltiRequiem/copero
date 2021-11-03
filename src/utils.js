@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export function isJSON(possibleJSON) {
   try {
     JSON.parse(possibleJSON);
@@ -10,5 +9,7 @@ export function isJSON(possibleJSON) {
 
 export function only(method, wantedMethod, response) {
   if (method === wantedMethod) return;
-  response.json({ error: `Got '${method}', but only '${wantedMethod}' method is expected.` });
+  response.json({
+    error: `Got '${method}', but only '${wantedMethod}' method is expected.`,
+  });
 }

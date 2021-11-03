@@ -2,18 +2,12 @@
 import mongoose from 'mongoose';
 
 import randomString from 'randomstring';
-import { Snippet } from '../models.js';
+import { Snippet } from '../models';
 
-import {
-  DB_USER, PASSWORD, CLUSTER_NAME, SUBDOMAIN, DB,
-} from '../config.js';
-
-class DataBase {
-  constructor() {
+export default class MongoDB {
+  constructor(uri) {
     (async () => {
-      await mongoose.connect(
-        `mongodb+srv://${DB_USER}:${PASSWORD}@${CLUSTER_NAME}.${SUBDOMAIN}.mongodb.net/${DB}?retryWrites=true&w=majority`,
-      );
+      await mongoose.connect(uri);
     })();
   }
 
@@ -32,5 +26,3 @@ class DataBase {
     return Snippet.find({ private: undefined }, '-_id -__v');
   }
 }
-
-export default new DataBase();

@@ -1,4 +1,4 @@
-import DBService from '../../services/mongodb.js';
+import { DBService } from '../../services';
 import { only } from '../../utils.js';
 
 export default async function handleRaw({ method, query }, response) {
