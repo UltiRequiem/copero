@@ -5,6 +5,4 @@ const SnippetSchema = new mongoose.Schema({
   slug: String,
 });
 
-const Snippet = mongoose.models.snippet || mongoose.model('snippet', SnippetSchema);
-
-export default Snippet;
+export default mongoose.models.snippet || mongoose.model('snippet', SnippetSchema);

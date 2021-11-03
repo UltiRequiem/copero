@@ -1,4 +1,3 @@
-/* eslint-disable class-methods-use-this */
 import mongoose from 'mongoose';
 
 import randomString from 'randomstring';
@@ -9,20 +8,22 @@ export default class MongoDB {
     (async () => {
       await mongoose.connect(uri);
     })();
+
+    this.SnippetModel = Snippet;
   }
 
   async newSnippet(snippet) {
-    return new Snippet({
+    return new this.SnippetModel({
       snippet,
       slug: randomString.generate({ length: 6, charset: 'alphabetic' }),
     }).save();
   }
 
   async findBySlug(slug) {
-    return Snippet.findOne({ slug });
+    return this.SnippetModel.findOne({ slug });
   }
 
   async publicSnippets() {
-    return Snippet.find({ private: undefined }, '-_id -__v');
+    return this.SnippetModel.find({ private: undefined }, '-_id -__v');
   }
 }
