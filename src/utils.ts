@@ -1,7 +1,6 @@
-/**
- * @param {string} possibleJSON
- */
-export function isJSON(possibleJSON) {
+import type { NextApiResponse } from 'next';
+
+export function isJSON(possibleJSON: string) {
   try {
     JSON.parse(possibleJSON);
   } catch {
@@ -10,12 +9,11 @@ export function isJSON(possibleJSON) {
   return true;
 }
 
-/**
- * @param {string} method
- * @param {string} expectedMethod
- * @param {Object} response
- */
-export function only(method, expectedMethod, response) {
+export function only(
+  method: string,
+  expectedMethod: string,
+  response: NextApiResponse,
+) {
   if (method === expectedMethod) return;
   response.json({
     error: `Got '${method}', but only '${expectedMethod}' method is expected.`,

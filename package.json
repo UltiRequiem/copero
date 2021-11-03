@@ -19,12 +19,14 @@
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
+    "@types/react": "^17.0.34",
     "eslint": "7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-next": "12.0.2",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-unicorn": "^37.0.1",
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "typescript": "^4.4.4"
   }
 }
