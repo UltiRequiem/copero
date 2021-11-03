@@ -29,7 +29,7 @@ class DataBase {
   }
 
   async publicSnippets() {
-    return Snippet.find({ private: undefined });
+    return Snippet.find({ private: undefined }, '-_id -__v');
   }
 }
 

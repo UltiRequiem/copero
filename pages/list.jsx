@@ -1,16 +1,16 @@
 import React from 'react';
 
-export default function ListSnippets({ snippetsData, host }) {
+export default function ListSnippets({ slugs, host }) {
   return (
     <>
       <h1>All snippets</h1>
 
-      {snippetsData.map((snippet) => (
+      {slugs.map((slug) => (
         <div>
-          <a href={`http://${host}/${snippet.slug}`}>
+          <a href={`http://${host}/${slug}`}>
             Visit
             {' '}
-            {snippet.slug}
+            {slug}
           </a>
         </div>
       ))}
@@ -24,16 +24,12 @@ export async function getServerSideProps({
     headers: { host },
   },
 }) {
-  const response = await fetch(`http://${host}/api/list`);
-  const parsedResponse = await response.json();
-
-  const snippetsData = parsedResponse.map((item) => ({
-    slug: item.slug,
-  }));
+  const response = await fetch(`http://${host}/api/all?only=slug`);
+  const slugs = await response.json();
 
   return {
     props: {
-      snippetsData,
+      snippetsData: slugs,
       host,
     },
   };
