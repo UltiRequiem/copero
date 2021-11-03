@@ -1,5 +1,4 @@
 import React from 'react';
-import { Form, Button } from 'react-bootstrap';
 import { useRouter } from 'next/router';
 
 export default function CreateSnippet() {
@@ -20,27 +19,24 @@ export default function CreateSnippet() {
   };
 
   return (
-    <div className="text-center mt-5">
+    <div>
       <h1>Upload your snippet</h1>
       <p>
         Paste your text snippet in the text area below, save it, and share the
         link.
       </p>
 
-      <Form>
-        <Form.Group className="mb-2 pt-4">
-          <Form.Control
-            style={{ width: '100%', height: '18em', margin: '0 auto' }}
-            as="textarea"
-            rows={3}
-            onChange={(event) => setSnippet(event.target.value)}
-          />
-        </Form.Group>
-
-        <Button onClick={saveSnippet} variant="outline-info" className="mt-4">
+      <form>
+        <input
+          style={{ width: '100%', height: '18em', margin: '0 auto' }}
+          as="textarea"
+          rows={3}
+          onChange={(event) => setSnippet(event.target.value)}
+        />
+        <button type="button" onClick={saveSnippet} variant="outline-info">
           Save your snippet
-        </Button>
-      </Form>
+        </button>
+      </form>
     </div>
   );
 }

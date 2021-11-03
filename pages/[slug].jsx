@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form, Button } from 'react-bootstrap';
 
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -14,11 +13,11 @@ export default function CreateSnippet({ snippetText, slug, notExist = false }) {
   if (notExist) {
     return (
       <>
-        <div className="mt-4">
+        <div>
           <h1>There is nothing here yet</h1>
         </div>
 
-        <div className="mt-4">
+        <div>
           <Image
             src="/404.jpeg"
             alt="Picture of the author"
@@ -27,48 +26,38 @@ export default function CreateSnippet({ snippetText, slug, notExist = false }) {
           />
         </div>
 
-        <div className="mt-1">
-          <Button onClick={() => router.push('/')} variant="outline-info">
+        <div>
+          <button
+            type="button"
+            onClick={() => router.push('/')}
+            variant="outline-info"
+          >
             Return Home
-          </Button>
+          </button>
         </div>
       </>
     );
   }
 
   return (
-    <div className="text-center mt-4">
+    <div>
       <h1>Snippet</h1>
-      <Button
+      <button
+        type="button"
         onClick={() => copy(window.location)}
-        className="mb-4 mt-2 mr-1"
         variant="outline-info"
       >
         Copy Link to Clipboard
-      </Button>
-      &nbsp; &nbsp;
-      <Button
+      </button>
+      <button
+        type="button"
         onClick={() => router.push(`/api/${slug}`)}
-        className="mb-4 mt-2"
         variant="outline-info"
       >
         Raw Text
-      </Button>
-      <Form>
-        <Form.Group controlId="exampleForm.ControlTextarea1">
-          <Form.Control
-            style={{
-              margin: '0 auto',
-              width: '80%',
-              height: '300px',
-            }}
-            disabled
-            value={snippetText}
-            as="textarea"
-            rows={3}
-          />
-        </Form.Group>
-      </Form>
+      </button>
+
+      <textarea name="awesome">{snippetText}</textarea>
     </div>
   );
 }
