@@ -3,6 +3,7 @@
 
 import React from 'react';
 import CustomHead from '../componets/head';
+import { Footer, Header, Container } from '../containers';
 import { GlobalStyles } from '../styles';
 
 export default function Copero({ Component, pageProps }) {
@@ -13,7 +14,12 @@ export default function Copero({ Component, pageProps }) {
       <CustomHead />
 
       {/* Layout */}
-      <Component {...pageProps} />
+
+      <Container>
+        <Header />
+        <Component {...pageProps} styles={{ 'grid-area': 'main' }} />
+        <Footer />
+      </Container>
     </>
   );
 }
