@@ -1,7 +1,11 @@
+import type { NextApiResponse, NextApiRequest } from 'next';
 import { DBService } from '../../services';
 import { only } from '../../utils';
 
-export default async function handlePost({ body, method }, response) {
+export default async function handlePost(
+  { body, method }: NextApiRequest,
+  response: NextApiResponse,
+) {
   only(method, 'POST', response);
 
   const snippetPost = await DBService.newSnippet(body.snippet);
