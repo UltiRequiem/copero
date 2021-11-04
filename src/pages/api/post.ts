@@ -6,7 +6,7 @@ export default async function handlePost(
   { body, method }: NextApiRequest,
   response: NextApiResponse,
 ) {
-  only(method, 'POST', response);
+  only(method as string, 'POST', response);
 
   const snippetPost = await DBService.newSnippet(body.snippet);
 

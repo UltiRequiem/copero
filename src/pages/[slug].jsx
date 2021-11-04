@@ -11,22 +11,13 @@ export default function CreateSnippet({ snippetText, slug }) {
   return (
     <div>
       <h1>Snippet</h1>
-      <button
-        type="button"
-        onClick={() => copy(window.location)}
-        variant="outline-info"
-      >
+      <button type="button" onClick={() => copy(window.location)}>
         Copy Link to Clipboard
       </button>
-      <button
-        type="button"
-        onClick={() => router.push(`/api/${slug}`)}
-        variant="outline-info"
-      >
+      <button type="button" onClick={() => router.push(`/api/${slug}`)}>
         Raw Text
       </button>
-
-      <textarea name="awesome">{snippetText}</textarea>
+      <textarea defaultValue={snippetText} />
     </div>
   );
 }

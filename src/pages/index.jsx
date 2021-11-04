@@ -6,6 +6,7 @@ export default function CreateSnippet() {
   const router = useRouter();
 
   const saveSnippet = async () => {
+    console.log(JSON.stringify({ snippet }));
     const response = await fetch('/api/post', {
       method: 'POST',
       headers: {
@@ -26,14 +27,12 @@ export default function CreateSnippet() {
         link.
       </p>
 
-      <form>
+      <form action="/api/post">
         <input
           style={{ width: '100%', height: '18em', margin: '0 auto' }}
-          as="textarea"
-          rows={3}
           onChange={(event) => setSnippet(event.target.value)}
         />
-        <button type="button" onClick={saveSnippet} variant="outline-info">
+        <button type="button" onClick={saveSnippet}>
           Save your snippet
         </button>
       </form>

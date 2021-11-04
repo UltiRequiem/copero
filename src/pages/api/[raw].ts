@@ -6,7 +6,7 @@ export default async function handleRaw(
   { query: { raw }, method }: NextApiRequest,
   response: NextApiResponse,
 ) {
-  only(method, 'GET', response);
+  only(method as string, 'GET', response);
 
   const snippetObject = await DBService.findBySlug(raw);
 

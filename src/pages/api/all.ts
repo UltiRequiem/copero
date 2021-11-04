@@ -6,7 +6,7 @@ export default async function handleRaw(
   { method, query }: NextApiRequest,
   response: NextApiResponse,
 ) {
-  only(method, 'GET', response);
+  only(method as string, 'GET', response);
 
   let data = await DBService.publicSnippets();
 

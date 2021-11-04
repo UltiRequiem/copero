@@ -20,11 +20,7 @@ export default function NotFound() {
       </div>
 
       <div>
-        <button
-          type="button"
-          onClick={() => router.push('/')}
-          variant="outline-info"
-        >
+        <button type="button" onClick={() => router.push('/')}>
           Return Home
         </button>
       </div>
