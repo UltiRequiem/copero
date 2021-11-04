@@ -6,7 +6,6 @@ export default function CreateSnippet() {
   const router = useRouter();
 
   const saveSnippet = async () => {
-    console.log(JSON.stringify({ snippet }));
     const response = await fetch('/api/post', {
       method: 'POST',
       headers: {
@@ -22,19 +21,22 @@ export default function CreateSnippet() {
   return (
     <div>
       <h1>Upload your snippet</h1>
-      <p>
-        Paste your text snippet in the text area below, save it, and share the
-        link.
-      </p>
-
-      <form action="/api/post">
-        <input
-          style={{ width: '100%', height: '18em', margin: '0 auto' }}
-          onChange={(event) => setSnippet(event.target.value)}
-        />
-        <button type="button" onClick={saveSnippet}>
-          Save your snippet
-        </button>
+      <form
+        onSubmit={(event) => {
+          saveSnippet();
+          event.preventDefault();
+        }}
+      >
+        <label htmlFor="text">
+          <input
+            type="text"
+            id="text"
+            onChange={(event) => setSnippet(event.target.value)}
+          />
+          Paste your text snippet in the text area below, save it, and share the
+          link.
+        </label>
+        <button type="submit">Save your snippet</button>
       </form>
     </div>
   );

@@ -1,6 +1,6 @@
 import { connect } from 'mongoose';
-
 import randomString from 'randomstring';
+
 import { Snippet } from '../models';
 
 export default class MongoDB {
@@ -13,14 +13,18 @@ export default class MongoDB {
   }
 
   async newSnippet(snippet) {
-    return new this.SnippetModel({
+    const slug = randomString.generate({ length: 6, charset: 'alphabetic' });
+
+    await new this.SnippetModel({
       snippet,
-      slug: randomString.generate({ length: 6, charset: 'alphabetic' }),
+      slug,
     }).save();
+
+    return this.findBySlug(slug);
   }
 
   async findBySlug(slug) {
-    return this.SnippetModel.findOne({ slug });
+    return this.SnippetModel.findOne({ slug }, '-_id -__v');
   }
 
   async publicSnippets() {
