@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import { connect } from 'mongoose';
 
 import randomString from 'randomstring';
 import { Snippet } from '../models';
@@ -6,7 +6,7 @@ import { Snippet } from '../models';
 export default class MongoDB {
   constructor(uri) {
     (async () => {
-      await mongoose.connect(uri);
+      await connect(uri);
     })();
 
     this.SnippetModel = Snippet;
