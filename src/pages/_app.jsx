@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 import React from 'react';
-import CustomHead from './head';
+import CustomHead from '../componets/head';
 import { GlobalStyles } from '../styles';
 
 export default function Copero({ Component, pageProps }) {
