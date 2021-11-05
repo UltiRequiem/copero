@@ -1,5 +1,7 @@
 # copero
 
+A free service to store plain text.
+
 ## API
 
 ### `GET /api/all`
