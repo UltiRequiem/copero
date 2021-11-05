@@ -17,6 +17,7 @@ module.exports = {
   rules: {
     'no-console': 'warn',
     'no-unused-vars': 'error',
+    'unicorn/prevent-abbreviations': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',
