@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 
-export const ItemListContainer = styled.ul``;
+export const ListContainer = styled.div`
+  margin: 1%;
+`;
 
-export const ItemList = styled.li``;
+export const List = styled.ul`
+  background: lightblue;
+  width: 20%;
+  height: 2%;
+`;
+
+export const ItemList = styled.li`
+  display: block;
+  list-style: none;
+`;

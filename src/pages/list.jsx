@@ -1,24 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ItemListContainer, ItemList } from '../styles';
+import { List, ItemList, ListContainer } from '../styles';
 
 export default function ListSnippets({ slugs, host }) {
   return (
     <>
-      <h1>All snippets</h1>
-
-      {slugs.map((slug) => (
-        <ItemListContainer>
-          <ItemList key={slug}>
-            <a href={`http://${host}/${slug}`}>
-              Visit
-              {' '}
-              {slug}
-            </a>
-          </ItemList>
-        </ItemListContainer>
-      ))}
+      <ListContainer>
+        <h1>All snippets</h1>
+        {slugs.map((slug) => (
+          <List>
+            <ItemList key={slug}>
+              <a href={`http://${host}/${slug}`}>
+                Visit
+                {' '}
+                {slug}
+              </a>
+            </ItemList>
+          </List>
+        ))}
+      </ListContainer>
     </>
   );
 }
