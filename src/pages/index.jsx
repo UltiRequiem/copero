@@ -28,14 +28,19 @@ export default function CreateSnippet() {
         }}
       >
         <label htmlFor="text">
-          <input
-            type="text"
-            id="text"
-            onChange={(event) => setSnippet(event.target.value)}
-          />
           Paste your text snippet in the text area below, save it, and share the
           link.
         </label>
+
+        <div>
+          <textarea
+            type="text"
+            rows="20"
+            cols="58"
+            id="text"
+            onChange={(event) => setSnippet(event.target.value)}
+          />
+        </div>
         <button type="submit">Save your snippet</button>
       </form>
     </div>

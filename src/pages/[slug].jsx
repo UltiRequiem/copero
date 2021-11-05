@@ -17,7 +17,9 @@ export default function CreateSnippet({ snippetText, slug }) {
       <button type="button" onClick={() => router.push(`/api/${slug}`)}>
         Raw Text
       </button>
-      <textarea defaultValue={snippetText} />
+      <div>
+        <textarea defaultValue={snippetText} rows="20" cols="58" />
+      </div>
     </div>
   );
 }
