@@ -1,14 +1,9 @@
 import styled from 'styled-components';
 
 const FooterContainer = styled.footer`
-  margin-top: 5%;
-  height: 5%;
-
-  text-align: center;
-
-  grid-area: footer;
-
-  background-color: lightgreen;
+  margin-top: 2%;
+  background: purple;
+  padding: 1rem;
 `;
 
 export default FooterContainer;

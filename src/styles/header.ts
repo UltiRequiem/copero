@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const Nav = styled.nav`
-  overflow: hidden;
-  grid-area: nav;
-  background-color: lightgreen;
+  background: purple;
+  padding: 1rem;
 `;
 
 export const NavItem = styled.li`
@@ -13,5 +12,5 @@ export const NavItem = styled.li`
 `;
 
 export const NavLink = styled.a`
-  color: red;
+  color: pink;
 `;

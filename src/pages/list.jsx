@@ -10,7 +10,7 @@ export default function ListSnippets({ slugs, host }) {
 
       {slugs.map((slug) => (
         <ItemListContainer>
-          <ItemList>
+          <ItemList key={slug}>
             <a href={`http://${host}/${slug}`}>
               Visit
               {' '}
