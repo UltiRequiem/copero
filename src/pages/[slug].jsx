@@ -4,12 +4,14 @@ import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 
 import copy from 'clipboard-copy';
+import { Centerizador } from '../containers';
+
 import { isJSON } from '../utils';
 
 export default function CreateSnippet({ snippetText, slug }) {
   const router = useRouter();
   return (
-    <div>
+    <Centerizador>
       <h1>Snippet</h1>
       <button type="button" onClick={() => copy(window.location)}>
         Copy Link to Clipboard
@@ -20,7 +22,7 @@ export default function CreateSnippet({ snippetText, slug }) {
       <div>
         <textarea defaultValue={snippetText} rows="20" cols="58" />
       </div>
-    </div>
+    </Centerizador>
   );
 }
 

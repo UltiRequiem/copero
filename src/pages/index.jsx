@@ -1,6 +1,8 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
+import { Centerizador } from '../containers';
+
 export default function CreateSnippet() {
   const [snippet, setSnippet] = React.useState('');
   const router = useRouter();
@@ -19,7 +21,7 @@ export default function CreateSnippet() {
   };
 
   return (
-    <div>
+    <Centerizador>
       <h1>Upload your snippet</h1>
       <form
         onSubmit={(event) => {
@@ -43,6 +45,6 @@ export default function CreateSnippet() {
         </div>
         <button type="submit">Save your snippet</button>
       </form>
-    </div>
+    </Centerizador>
   );
 }

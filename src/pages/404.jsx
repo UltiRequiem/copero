@@ -1,11 +1,12 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { Centerizador } from '../containers';
 
 export default function NotFound() {
   const router = useRouter();
   return (
-    <>
+    <Centerizador>
       <div>
         <h1>There is nothing here yet</h1>
       </div>
@@ -24,6 +25,6 @@ export default function NotFound() {
           Return Home
         </button>
       </div>
-    </>
+    </Centerizador>
   );
 }

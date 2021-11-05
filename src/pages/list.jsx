@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { List, ItemList, ListContainer } from '../styles';
+import {
+  List, ItemList, ListContainer, Centerizador,
+} from '../styles';
 
 export default function ListSnippets({ slugs, host }) {
   return (
-    <>
+    <Centerizador>
       <ListContainer>
         <h1>All snippets</h1>
         {slugs.map((slug) => (
@@ -20,7 +22,7 @@ export default function ListSnippets({ slugs, host }) {
           </List>
         ))}
       </ListContainer>
-    </>
+    </Centerizador>
   );
 }
 
