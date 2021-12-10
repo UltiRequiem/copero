@@ -20,7 +20,7 @@ export default function CreateSnippet({ snippetText, slug }) {
         Raw Text
       </button>
       <div>
-        <textarea defaultValue={snippetText} rows="20" cols="58" />
+        <textarea readonly defaultValue={snippetText} rows="20" cols="58" />
       </div>
     </Centerizador>
   );
