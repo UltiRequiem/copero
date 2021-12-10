@@ -55,12 +55,6 @@ If everything goes OK, it will return:
 }
 ```
 
-## TODO
-
-- Learn how to do a decent frontend
-
-- Agressively refactor the frontend
-
 ## Licence
 
 This project is licensed under the [MIT Licence](./license).
