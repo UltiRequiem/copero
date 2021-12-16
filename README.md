@@ -2,6 +2,8 @@
 
 A free service to store plain text.
 
+Visit the frontend: https://copero.vercel.app
+
 ## API
 
 ### `GET /api/all`
@@ -54,6 +56,14 @@ If everything goes OK, it will return:
   "slug": "akgAWr"
 }
 ```
+
+### Technologies Used
+
+- Next.js
+- MongoDB (Free Mongo Atlas Instance)
+- Styled Components
+
+I'm not the best at styling but I try 🤣
 
 ## Licence
 
