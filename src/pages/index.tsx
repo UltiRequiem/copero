@@ -23,7 +23,6 @@ const Index: NextPage = () => {
 
   const publishSnippet = async () => {
     const slug = await saveSnippet(snippet);
-    console.log("hey");
     router.push(slug);
   };
 
