@@ -1,12 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { DBService } from "../../services";
-import { only } from "../../utils";
 
 export default async function handleRaw(
   { query: { raw }, method }: NextApiRequest,
   response: NextApiResponse,
 ) {
-  only(method as string, "GET", response);
+  if (method !== "GET") {
+    response.json({ error: "Invalid method." });
+  }
 
   const snippetObject = await DBService.findBySlug(raw);
 

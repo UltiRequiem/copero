@@ -1,12 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { DBService } from "../../services";
-import { only } from "../../utils";
 
 export default async function handlePost(
   { body, method }: NextApiRequest,
   response: NextApiResponse,
 ) {
-  only(method as string, "POST", response);
+  if (method !== "POST") {
+    response.json({ error: "Invalid method." });
+  }
 
   const snippetPost = await DBService.newSnippet(body.snippet);
 

@@ -1,12 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { DBService } from "../../services";
-import { only } from "../../utils";
 
 export default async function handleRaw(
   { method, query }: NextApiRequest,
   response: NextApiResponse,
 ) {
-  only(method as string, "GET", response);
+  if (method !== "GET") {
+    response.json({ error: "Invalid method." });
+  }
 
   let data = await DBService.publicSnippets();
 
