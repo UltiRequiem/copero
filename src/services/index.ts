@@ -1,7 +1,7 @@
 import MongoDB from './mongodb';
 
 import {
-  DB_USER, PASSWORD, CLUSTER_NAME, SUBDOMAIN, DB,
+  CLUSTER_NAME, DB, DB_USER, PASSWORD, SUBDOMAIN,
 } from '../config';
 
 // eslint-disable-next-line import/prefer-default-export

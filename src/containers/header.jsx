@@ -1,6 +1,6 @@
-import React from 'react';
-import Link from 'next/link';
-import { Nav, NavItem, NavLink } from '../styles';
+import React from "react";
+import Link from "next/link";
+import { Nav, NavItem, NavLink } from "../styles";
 
 export default function Header() {
   return (

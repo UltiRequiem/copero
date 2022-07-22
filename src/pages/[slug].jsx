@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
-import copy from 'clipboard-copy';
-import { Centerizador } from '../containers';
+import copy from "clipboard-copy";
+import { Centerizador } from "../containers";
 
-import { isJSON } from '../utils';
+import { isJSON } from "../utils";
 
 export default function CreateSnippet({ snippetText, slug }) {
   const router = useRouter();
@@ -39,7 +39,7 @@ export async function getServerSideProps({ req: request, params: { slug } }) {
   if (isJSON(parsedResponse)) {
     return {
       redirect: {
-        destination: '/404',
+        destination: "/404",
         permanent: false,
       },
     };

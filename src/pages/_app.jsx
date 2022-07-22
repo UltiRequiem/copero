@@ -1,12 +1,10 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 
-import React from 'react';
-import CustomHead from '../componets/head';
-import {
-  Footer, Header, Container, ComponentContainer,
-} from '../containers';
-import { GlobalStyles } from '../styles';
+import React from "react";
+import CustomHead from "../componets/head";
+import { ComponentContainer, Container, Footer, Header } from "../containers";
+import { GlobalStyles } from "../styles";
 
 export default function Copero({ Component, pageProps }) {
   return (
@@ -19,7 +17,7 @@ export default function Copero({ Component, pageProps }) {
 
       <Container>
         <Header />
-        <Component {...pageProps} styles={{ 'grid-area': 'main' }} />
+        <Component {...pageProps} styles={{ "grid-area": "main" }} />
         <Footer />
       </Container>
     </>

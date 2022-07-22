@@ -1,9 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import {
-  List, ItemList, ListContainer, Centerizador,
-} from '../styles';
+import { Centerizador, ItemList, List, ListContainer } from "../styles";
 
 export default function ListSnippets({ slugs, host }) {
   return (
@@ -14,9 +12,7 @@ export default function ListSnippets({ slugs, host }) {
           <List>
             <ItemList key={slug}>
               <a href={`http://${host}/${slug}`}>
-                Visit
-                {' '}
-                {slug}
+                Visit {slug}
               </a>
             </ItemList>
           </List>

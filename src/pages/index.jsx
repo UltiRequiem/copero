@@ -1,17 +1,17 @@
-import React from 'react';
-import { useRouter } from 'next/router';
+import React from "react";
+import { useRouter } from "next/router";
 
-import { Centerizador } from '../containers';
+import { Centerizador } from "../containers";
 
 export default function CreateSnippet() {
-  const [snippet, setSnippet] = React.useState('');
+  const [snippet, setSnippet] = React.useState("");
   const router = useRouter();
 
   const saveSnippet = async () => {
-    const response = await fetch('/api/post', {
-      method: 'POST',
+    const response = await fetch("/api/post", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ snippet }),
     });

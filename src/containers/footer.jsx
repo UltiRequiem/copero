@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import { FooterContainer } from '../styles';
+import { FooterContainer } from "../styles";
 
 export default function Header() {
   const [currentYear, yearImadeThis] = [new Date().getFullYear(), 2021];
@@ -8,13 +8,9 @@ export default function Header() {
   return (
     <FooterContainer>
       <p>
-        ©
-        {' '}
-        {currentYear === yearImadeThis
+        © {currentYear === yearImadeThis
           ? yearImadeThis
-          : `${yearImadeThis} - ${currentYear}`}
-        {' '}
-        UltiRequiem
+          : `${yearImadeThis} - ${currentYear}`} UltiRequiem
       </p>
     </FooterContainer>
   );
