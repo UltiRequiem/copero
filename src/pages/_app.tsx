@@ -2,6 +2,7 @@ import React from "react";
 import { Router } from "next/router";
 
 import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
 
 import NProgress from "nprogress";
 
@@ -21,6 +22,7 @@ export default function Copero({ Component, pageProps }: AppProps) {
         <div className="h-screen bg-slate-300">
           <Header />
           <Component {...pageProps} />
+          <Footer></Footer>
         </div>
       </div>
     </>

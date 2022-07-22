@@ -28,8 +28,10 @@ const Index: NextPage = () => {
   };
 
   return (
-    <div className="text-center h-max">
-      <p className="m-3 text-lg">
+    <div className="text-center text-2xl">
+      <h1 className="text-3xl underline font-bold m-2">Share your Snippet!</h1>
+
+      <p className="m-3">
         Paste your text snippet in the text area below, save it, and share the
         link.
       </p>
@@ -48,6 +50,10 @@ const Index: NextPage = () => {
           Save your Snippet
         </button>
       </div>
+
+      <p className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600 m-2">
+        See all public snippets...
+      </p>
     </div>
   );
 };
