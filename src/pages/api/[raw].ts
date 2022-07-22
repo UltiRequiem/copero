@@ -9,7 +9,7 @@ export default async function handleRaw(
     response.json({ error: "Invalid method." });
   }
 
-  const snippetObject = await DBService.findBySlug(raw);
+  const snippetObject = await DBService.findBySlug(raw as string);
 
   if (!snippetObject) {
     response.json({ error: `Snippet ${raw} not found.` });

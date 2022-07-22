@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@types/nprogress": "^0.2.0",
+    "@types/randomstring": "^1.1.8",
     "@types/styled-components": "^5.1.15",
     "autoprefixer": "^10.4.7",
     "babel-plugin-styled-components": "^1.13.3",
