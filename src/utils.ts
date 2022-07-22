@@ -1,4 +1,4 @@
-import type { NextApiResponse } from 'next';
+import type { NextApiResponse } from "next";
 
 export function isJSON(possibleJSON: string) {
   try {
@@ -6,6 +6,7 @@ export function isJSON(possibleJSON: string) {
   } catch {
     return false;
   }
+
   return true;
 }
 
@@ -14,7 +15,10 @@ export function only(
   expectedMethod: string,
   response: NextApiResponse,
 ) {
-  if (method === expectedMethod) return;
+  if (method === expectedMethod) {
+    return;
+  }
+
   response.json({
     error: `Got '${method}', but only '${expectedMethod}' method is expected.`,
   });

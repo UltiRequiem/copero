@@ -1,8 +1,6 @@
-import MongoDB from './mongodb';
+import MongoDB from "./mongodb";
 
-import {
-  CLUSTER_NAME, DB, DB_USER, PASSWORD, SUBDOMAIN,
-} from '../config';
+import { CLUSTER_NAME, DB, DB_USER, PASSWORD, SUBDOMAIN } from "../config";
 
 // eslint-disable-next-line import/prefer-default-export
 export const DBService = new MongoDB(

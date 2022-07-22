@@ -1,7 +1,7 @@
-import { connect } from 'mongoose';
-import randomString from 'randomstring';
+import { connect } from "mongoose";
+import randomString from "randomstring";
 
-import { Snippet } from '../models';
+import { Snippet } from "../models";
 
 export default class MongoDB {
   constructor(uri) {
@@ -13,21 +13,20 @@ export default class MongoDB {
   }
 
   async newSnippet(snippet) {
-    const slug = randomString.generate({ length: 6, charset: 'alphabetic' });
+    const slug = randomString.generate({ length: 6, charset: "alphabetic" });
 
-    await new this.SnippetModel({
-      snippet,
-      slug,
-    }).save();
+    const data = { snippet, slug };
 
-    return this.findBySlug(slug);
+    await new this.SnippetModel(data).save();
+
+    return data;
   }
 
   async findBySlug(slug) {
-    return this.SnippetModel.findOne({ slug }, '-_id -__v');
+    return this.SnippetModel.findOne({ slug }, "-_id -__v");
   }
 
   async publicSnippets() {
-    return this.SnippetModel.find({ private: undefined }, '-_id -__v');
+    return this.SnippetModel.find({ private: undefined }, "-_id -__v");
   }
 }
