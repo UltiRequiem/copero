@@ -1,7 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 
 import type { NextPage } from "next";
+import Link from "next/link";
 
 const saveSnippet = async (snippet: string) => {
   const response = await fetch("/api/post", {
@@ -27,8 +28,8 @@ const Index: NextPage = () => {
   };
 
   return (
-    <div className="text-center text-2xl">
-      <h1 className="text-3xl underline font-bold m-2">Share your Snippet!</h1>
+    <div className="text-center">
+      <h1 className="text-xl underline font-bold m-2">Share your Snippet!</h1>
 
       <p className="m-3">
         Paste your text snippet in the text area below, save it, and share the
@@ -36,7 +37,7 @@ const Index: NextPage = () => {
       </p>
 
       <textarea
-        className="m-3 p-2 w-72 md:w-96 h-52 m:h-72 lg:h-96 lg:w-96"
+        className="m-3 p-2 w-72 h-72"
         onChange={(event) => setSnippet(event.target.value)}
       />
 
@@ -50,9 +51,11 @@ const Index: NextPage = () => {
         </button>
       </div>
 
-      <p className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600 m-2">
-        See all public snippets...
-      </p>
+      <Link href="/list">
+        <a className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600 m-2">
+          See all public snippets...
+        </a>
+      </Link>
     </div>
   );
 };
