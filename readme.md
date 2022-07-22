@@ -4,11 +4,11 @@
 
 Publish and share your text snippets!
 
-### Technologies Used
+### Stack
 
 - Next.js
-- Tailwind CSS
-- MongoDB (Free Mongo Atlas Instance)
+- TailwindCSS
+- MongoDB
 
 ## Licence
 
