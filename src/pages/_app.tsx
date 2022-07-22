@@ -1,8 +1,9 @@
 import React from "react";
 import { Router } from "next/router";
 
+import { Header } from "../components/Header";
+
 import NProgress from "nprogress";
-import CustomHead from "../componets/head";
 
 import "../globals.css";
 import "nprogress/nprogress.css";
@@ -16,8 +17,12 @@ Router.events.on("routeChangeError", NProgress.done);
 export default function Copero({ Component, pageProps }: AppProps) {
   return (
     <>
-      <CustomHead />
-      <Component {...pageProps} />
+      <div>
+        <div className="h-screen bg-slate-300">
+          <Header />
+          <Component {...pageProps} />
+        </div>
+      </div>
     </>
   );
 }
