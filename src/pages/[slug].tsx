@@ -28,9 +28,13 @@ const CreateSnippet: NextPage<Props> = ({ snippetText, slug }) => {
 
 export const getServerSideProps: GetServerSideProps<Props> = async ({
   req,
-  params: { slug },
+  params,
 }) => {
-  const response = await fetch(`http://${req.headers.host}/api/${slug}`);
+  const slug = params?.slug! as string;
+
+  const response = await fetch(
+    `http://${req.headers.host}/api/${slug}`,
+  );
 
   const snippetText = await response.text();
 
