@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.15",
+    "autoprefixer": "^10.4.7",
     "babel-plugin-styled-components": "^1.13.3",
     "eslint": "7.32.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -27,7 +28,9 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-unicorn": "^37.0.1",
+    "postcss": "^8.4.14",
     "prettier": "^2.4.1",
+    "tailwindcss": "^3.1.6",
     "typescript": "^4.4.4"
   }
 }

@@ -3,8 +3,10 @@
 
 import React from "react";
 import CustomHead from "../componets/head";
-import { ComponentContainer, Container, Footer, Header } from "../containers";
+import { Container, Footer, Header } from "../containers";
 import { GlobalStyles } from "../styles";
+
+import "../globals.css";
 
 export default function Copero({ Component, pageProps }) {
   return (
