@@ -10,7 +10,7 @@
   "dependencies": {
     "clipboard-copy": "^4.0.1",
     "dotenv": "^10.0.0",
-    "mongoose": "^6.0.12",
+    "mongoose": "^6.4.6",
     "next": "12.1.0",
     "nprogress": "^0.2.0",
     "prop-types": "^15.7.2",
