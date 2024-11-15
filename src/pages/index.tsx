@@ -51,11 +51,6 @@ const Index: NextPage = () => {
         </button>
       </div>
 
-      <Link href="/list">
-        <a className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600 m-2">
-          See all public snippets...
-        </a>
-      </Link>
     </div>
   );
 };

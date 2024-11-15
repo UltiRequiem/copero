@@ -1,6 +1,7 @@
-import { useRouter } from "next/router";
 import copy from "clipboard-copy";
 import { GetServerSideProps, NextPage } from "next";
+import { DBService } from "../services";
+
 
 interface Props {
   snippetText: string;
@@ -44,15 +45,13 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
   req,
   params,
 }) => {
-  // TODO: Move API logic directly into here
   const slug = params?.slug! as string;
 
-  const response = await fetch(`http://${req.headers.host}/api/${slug}`);
+  const snippetObject = await DBService.findBySlug(slug);
 
-  const snippetText = await response.text();
 
   return {
-    props: { snippetText, slug },
+    props: { snippetText : snippetObject?.snippet, slug },
   };
 };
 

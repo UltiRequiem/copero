@@ -12,7 +12,7 @@ export default async function handleRaw(
   const snippetObject = await DBService.findBySlug(raw as string);
 
   if (!snippetObject) {
-    response.json({ error: `Snippet ${raw} not found.` });
+    response.json({ error: `Snippet '${raw}' not found.` });
   }
 
   response.status(200).send(snippetObject?.snippet);
