@@ -18,6 +18,13 @@ export function Header() {
           <span className="text-xl lg:text-3xl font-bold">Copero</span>
         </div>
       </Link>
+
+      <Link href="/list" passHref>
+        <a className="inline-block lg:text-xl px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
+          Public Snippets
+        </a>
+      </Link>
+
       <Link href="https://github.com/UltiRequiem/copero" passHref>
         <a className="inline-block lg:text-xl px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
           Open Source

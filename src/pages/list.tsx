@@ -1,6 +1,7 @@
-import copy from "clipboard-copy";
 import { GetServerSideProps, NextPage } from "next";
 import { DBService } from "../services";
+import Link from 'next/link'
+
 
 interface Props {
 	snippet: string,
@@ -12,8 +13,12 @@ const ListPage: NextPage<Props[]> = ({snippets}) => {
   return (
     <div className="text-center">
       <h1 className="text-xl underline m-2">Hello Friends!</h1>
+	  <p>There are {snippets.length} public snippets.</p>
+	  <div></div>
 	  {snippets.map(snippet =>{
-		return <div>{snippet.slug}</div>
+		return  <div>
+					<Link href={`/${snippet.slug}`}>{snippet.slug}</Link>
+		</div>
 	  })}
 
     </div>

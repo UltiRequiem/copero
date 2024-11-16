@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 
 import type { NextPage } from "next";
-import Link from "next/link";
 
 const saveSnippet = async (snippet: string) => {
   const response = await fetch("/api/post", {
