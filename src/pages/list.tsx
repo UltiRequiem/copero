@@ -16,6 +16,7 @@ const ListPage: NextPage<Props[]> = ({snippets}) => {
 	  <p>There are {snippets.length} public snippets.</p>
 	  <div></div>
 	  {snippets.map(snippet =>{
+		// eslint-disable-next-line react/jsx-key
 		return  <div>
 					<Link href={`/${snippet.slug}`}>{snippet.slug}</Link>
 		</div>
