@@ -36,7 +36,7 @@ const Index: NextPage = () => {
       </p>
 
       <textarea
-        className="m-3 p-2 w-72 h-72"
+        className="m-3 p-2 w-96 h-96"
         onChange={(event) => setSnippet(event.target.value)}
       />
 
